@@ -1,0 +1,14 @@
+{
+  "name": "advent-of-code",
+  "version": "1.0.0",
+  "description": "advent of code 2022",
+  "main": "index.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "cabanesdev",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}
