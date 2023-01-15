@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 
 function getCalories(): number[] {
-  const calories = readFileSync('../input/day1', 'utf-8')
+  const calories = readFileSync('input/day1/day1', 'utf-8')
     .split('\n\n')
     .map((values) => values.split('\n'))
     .map((values) => values.map((value) => Number(value)))
