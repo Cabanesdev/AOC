@@ -1,31 +1,48 @@
 import { readFileSync } from "fs";
 
-function checkIfPairContaintsPair([pair1, pair2]: string[]): boolean {
-  const startValue = [pair1.split('-')[0], pair2.split('-')[0]]
-  const endValue = [pair1.split('-')[1], pair2.split('-')[1]]
+function isPairContainsPair([pair1, pair2]: string[]): boolean {
+  const startValues = [Number(pair1.split('-')[0]), Number(pair2.split('-')[0])]
+  const endValues = [Number(pair1.split('-')[1]), Number(pair2.split('-')[1])]
 
-  if ((startValue[0] <= startValue[1] && endValue[0] >= endValue[1]) || (startValue[1] <= startValue[0] && endValue[1] >= endValue[0])) return true;
+  return ((startValues[0] <= startValues[1] && endValues[0] >= endValues[1]) || (startValues[1] <= startValues[0] && endValues[1] >= endValues[0]));
+}
 
-  return false;
+function isPairOverlap([pair1, pair2]: string[]): boolean {
+  const startValues = [Number(pair1.split('-')[0]), Number(pair2.split('-')[0])];
+  const endValues = [Number(pair1.split('-')[1]), Number(pair2.split('-')[1])];
+
+  return (startValues[0] <= endValues[1]) && (startValues[1] <= endValues[0]);
+}
+
+function readFile(): string[][] {
+  return readFileSync('../input/day4/day4', 'utf-8')
+    .split('\n')
+    .filter((val) => val)
+    .map((line) => line.split(','))
 }
 
 function part1() {
   console.log('Part 1');
 
-  readFileSync('./input/day4/day4', 'utf-8')
-    .split('\n')
+  const numberOfPairs = readFile()
+    .map((pairs) => isPairContainsPair(pairs) ? pairs : undefined)
     .filter((val) => val)
-    .map((line) => line.split(','))
-    .map((pairs) => {
-      if (checkIfPairContaintsPair(pairs)) return pairs;
-    })
-    .filter((val) => val).forEach((val) => console.log(val));
 
-  // console.log('Total Pairs: ', totalPairst);
+  console.log('numberOfPairs', numberOfPairs.length);
+}
+
+function part2() {
+  console.log('Part 2');
+
+  const numberOfPairs = readFile().map((pairs) => isPairOverlap(pairs) ? pairs : undefined)
+    .filter((val) => val)
+
+  console.log('numberOfPairs', numberOfPairs.length);
 }
 
 function main() {
   part1();
+  part2();
 }
 
 main();
