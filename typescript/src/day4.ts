@@ -15,7 +15,7 @@ function isPairOverlap([pair1, pair2]: string[]): boolean {
 }
 
 function readFile(): string[][] {
-  return readFileSync('../input/day4/day4', 'utf-8')
+  return readFileSync('../input/day4/data', 'utf-8')
     .split('\n')
     .filter((val) => val)
     .map((line) => line.split(','))

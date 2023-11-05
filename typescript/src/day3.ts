@@ -39,7 +39,7 @@ function part1(): void {
   console.log('Part 1');
   let total = 0;
 
-  readFileSync('input/day3/day3', 'utf-8')
+  readFileSync('../input/day3/data', 'utf-8')
     .split('\n')
     .filter((val) => val)
     .map((rucksack) => splitRucksack(rucksack))
@@ -52,7 +52,7 @@ function part2(): void {
   console.log('Part 2');
   let total = 0;
 
-  const lines = readFileSync('input/day3/day3', 'utf-8').split('\n').filter((val) => val)
+  const lines = readFileSync('../input/day3/data', 'utf-8').split('\n').filter((val) => val)
   const groups: string[][] = [];
 
   for (let i = 0; i < lines.length; i += 3) {

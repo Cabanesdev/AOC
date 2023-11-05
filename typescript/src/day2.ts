@@ -34,7 +34,7 @@ function part1(): void {
   console.log('Part 1');
   let totalPoints = 0;
 
-  readFileSync('input/day2/day2', 'utf-8')
+  readFileSync('../input/day2/data', 'utf-8')
     .split('\n')
     .filter((val) => val)
     .forEach((play) => totalPoints += checkIfWin(play.split(' ')));
@@ -46,7 +46,7 @@ function part2(): void {
   console.log('Part 2');
   let totalPoints = 0;
 
-  readFileSync('input/day2/day2', 'utf-8')
+  readFileSync('../input/day2/data', 'utf-8')
     .split('\n')
     .filter((val) => val)
     .map((val) => [val.split(' ')[0], transformPlay(val.split(' '))])
